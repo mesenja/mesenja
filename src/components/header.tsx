@@ -1,5 +1,6 @@
+import clsx from 'clsx'
 import React, { FunctionComponent } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import {
   img_mesenja_light,
@@ -14,6 +15,7 @@ import { useAuth } from '../store'
 
 export const Header: FunctionComponent = () => {
   const [state] = useAuth()
+  const { pathname } = useLocation()
 
   const { loggedIn } = state
 
@@ -75,7 +77,13 @@ export const Header: FunctionComponent = () => {
         {routes.map(({ icon, label, link }, index) => (
           <Link
             key={index}
-            className="flex items-center hover:bg-primary-light"
+            className={clsx(
+              'flex',
+              'items-center',
+              'hover:bg-primary-light',
+
+              pathname.includes(link) && 'bg-primary-light'
+            )}
             to={link}
           >
             {icon && (
