@@ -2965,6 +2965,11 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+crypto-js@^3.1.6:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.8.tgz#715f070bf6014f2ae992a98b3929258b713f08d5"
+  integrity sha1-cV8HC/YBTyrpkqmLOSkli3E/CNU=
+
 css-blank-pseudo@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/css-blank-pseudo/-/css-blank-pseudo-0.1.4.tgz#dfdefd3254bf8a82027993674ccf35483bfcb3c5"
@@ -6362,6 +6367,11 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+lz-string@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"
+  integrity sha1-wNjq82BZ9wV5bh40SBHPTEmNOiY=
+
 make-dir@^2.0.0, make-dir@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
@@ -8769,6 +8779,11 @@ react-scripts@3.3.0:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-sweet-state@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-sweet-state/-/react-sweet-state-1.1.1.tgz#1c890099741ed94f96eb43b84bb4de90756cd4f0"
+  integrity sha512-Bi5F+C88gmNPpCrufGPXABepoIY/PP4yfyu1BonHzxxmJ0LCcHvbhHAtYbUOEmQf3/xizCtX8GlmSuvqDAQw2A==
+
 react@^16.12.0:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
@@ -9316,6 +9331,14 @@ schema-utils@^2.0.0, schema-utils@^2.0.1, schema-utils@^2.1.0, schema-utils@^2.2
   dependencies:
     ajv "^6.10.2"
     ajv-keywords "^3.4.1"
+
+secure-ls@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/secure-ls/-/secure-ls-1.2.5.tgz#dfd08b223deb2af30194142b8962ed3cdbcf96f5"
+  integrity sha512-rUwshXkTSApCACmfjBYYzFnz2hgPYrdhM7cFU65HUaud+t53q66jCwGxbrw1UlCPslfeqXhI2f+QFldk+aIN/g==
+  dependencies:
+    crypto-js "^3.1.6"
+    lz-string "^1.4.4"
 
 select-hose@^2.0.0:
   version "2.0.0"
