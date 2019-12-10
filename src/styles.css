@@ -1,0 +1,45 @@
+/* fonts */
+
+@import url('https://rsms.me/inter/inter.css');
+
+/* tailwind */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* global */
+
+body {
+  @apply cursor-default font-sans overflow-hidden;
+}
+
+a {
+  transition: 0.3s;
+}
+
+/* layout */
+
+#root {
+  @apply flex flex-col h-screen min-h-screen overflow-y-auto;
+}
+
+#root > main {
+  @apply flex-1;
+}
+
+/* components */
+
+.button {
+  @apply bg-accent text-white rounded p-4 font-medium;
+
+  transition: 0.3s;
+}
+
+.button:hover {
+  @apply bg-accent-light;
+}
+
+.button:active {
+  @apply bg-accent-dark;
+}

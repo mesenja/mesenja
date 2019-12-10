@@ -1,0 +1,53 @@
+{
+  "name": "mesenja",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "build:styles": "postcss src/styles.css -o src/index.css",
+    "lint": "eslint src --ext ts,tsx",
+    "prebuild": "yarn build:styles",
+    "prestart": "yarn build:styles",
+    "start": "react-scripts start"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.3",
+    "autoprefixer": "^9.7.3",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-simple-import-sort": "^5.0.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.0",
+    "husky": "^3.1.0",
+    "postcss-cli": "^6.1.3",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "react-scripts": "3.3.0",
+    "tailwindcss": "^1.1.4",
+    "typescript": "~3.7.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
