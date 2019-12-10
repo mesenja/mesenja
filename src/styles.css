@@ -31,7 +31,7 @@ a {
 /* components */
 
 .button {
-  @apply bg-accent text-white rounded p-4 font-medium;
+  @apply bg-accent text-white rounded px-6 py-4 font-medium;
 
   transition: 0.3s;
 }

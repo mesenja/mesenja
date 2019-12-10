@@ -8665,7 +8665,10 @@ a {
   background-color: #1abc9c;
   color: #fff;
   border-radius: 0.25rem;
-  padding: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   font-weight: 500;
   transition: 0.3s;
 }
