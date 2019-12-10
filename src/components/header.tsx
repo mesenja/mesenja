@@ -58,11 +58,6 @@ export const Header: FunctionComponent = () => {
     },
     {
       auth: false,
-      label: 'Get started',
-      link: '/register'
-    },
-    {
-      auth: false,
       label: 'Sign in',
       link: '/login'
     }

@@ -12,8 +12,8 @@ export const Landing: FunctionComponent = () => (
       <h1 className="mt-16 text-5xl font-semibold text-accent">Mesenja</h1>
       <img src={img_illustration_landing} alt="Collaboration" />
       <p className="mb-8">Epic team collaboration.</p>
-      <Link className="button mb-16" to="/register">
-        Get started
+      <Link className="button mb-16" to="/login">
+        Sign in
       </Link>
     </main>
 
