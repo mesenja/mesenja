@@ -1,5 +1,5 @@
 import { Chance } from 'chance'
-import { orderBy, random, range, shuffle } from 'lodash'
+import { orderBy, random, range } from 'lodash'
 import { cloneDeep } from 'lodash'
 import moment from 'moment'
 import { createHook, createStore } from 'react-sweet-state'
@@ -21,9 +21,7 @@ export const users: User[] = [
   }))
 ]
 
-const topics: string[] = range(10).map(() => chance.word())
-
-const posts: Post[] = range(100).map(index => ({
+const posts: Post[] = range(100).map(() => ({
   body: chance.paragraph(),
   comments: range(0, random(3)).map(() => ({
     body: chance.paragraph(),
@@ -33,7 +31,6 @@ const posts: Post[] = range(100).map(index => ({
   })),
   createdAt: moment().subtract(random(10000), 'seconds'),
   id: chance.guid(),
-  topics: range(0, random(3)).map(index => shuffle(topics)[index]),
   user: users[random(users.length - 1)]
 }))
 
@@ -61,8 +58,7 @@ const Store = createStore({
     }
   },
   initialState: {
-    posts: orderBy(posts, 'createdAt', 'desc'),
-    topics
+    posts: orderBy(posts, 'createdAt', 'desc')
   },
   name: 'posts'
 })

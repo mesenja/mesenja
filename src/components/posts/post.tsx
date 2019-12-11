@@ -17,7 +17,7 @@ interface Props {
 
 export const Post: FunctionComponent<Props> = ({
   modal,
-  post: { body, createdAt, comments, id, topics, user }
+  post: { body, createdAt, comments, id, user }
 }) => {
   const [, { addComment }] = usePosts()
 
@@ -44,16 +44,6 @@ export const Post: FunctionComponent<Props> = ({
           <img className="w-4 h-4" src={img_comments} alt="Comments" />
           <span className="ml-2">{comments.length}</span>
         </Link>
-        {topics.length > 0 && (
-          <div className="flex flex-wrap justify-end">
-            <span className="font-medium">Topics</span>
-            {topics.map((topic, index) => (
-              <a key={index} className="text-accent ml-2" href="#topics">
-                {topic}
-              </a>
-            ))}
-          </div>
-        )}
       </footer>
     </>
   )

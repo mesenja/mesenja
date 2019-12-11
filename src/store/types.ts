@@ -4,7 +4,6 @@ export interface Post {
   id: string
   body: string
   comments: Comment[]
-  topics: string[]
   user: User
   createdAt: Moment
 }
