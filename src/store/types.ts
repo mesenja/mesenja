@@ -4,6 +4,7 @@ export interface Post {
   id: string
   body: string
   comments: Comment[]
+  likes: Like[]
   user: User
   createdAt: Moment
 }
@@ -11,6 +12,11 @@ export interface Post {
 export interface Comment {
   id: string
   body: string
+  user: User
+  createdAt: Moment
+}
+
+export interface Like {
   user: User
   createdAt: Moment
 }

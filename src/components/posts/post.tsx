@@ -1,10 +1,12 @@
+import clsx from 'clsx'
 import { orderBy } from 'lodash'
 import React, { FunctionComponent } from 'react'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 
-import { img_comments } from '../../assets'
+import { img_comments, img_likes } from '../../assets'
 import { usePosts } from '../../store'
+import { ali } from '../../store/posts'
 import { Post as IPost } from '../../store/types'
 import { Modal } from '../modal'
 import { Comment } from './comment'
@@ -17,11 +19,13 @@ interface Props {
 
 export const Post: FunctionComponent<Props> = ({
   modal,
-  post: { body, createdAt, comments, id, user }
+  post: { body, createdAt, comments, id, likes, user }
 }) => {
-  const [, { addComment }] = usePosts()
+  const [, { addComment, toggleLike }] = usePosts()
 
   const history = useHistory()
+
+  const liked = likes.find(like => like.user.id === ali.id)
 
   const post = (
     <>
@@ -39,7 +43,25 @@ export const Post: FunctionComponent<Props> = ({
         </span>
       </header>
       <p className="m-4">{body}</p>
-      <footer className="flex justify-between items-center p-4 border-grey border-t">
+      <footer className="flex items-center p-4 border-grey border-t">
+        <a
+          className={clsx(
+            'flex',
+            'items-center',
+            'mr-8',
+
+            liked ? 'opacity-100' : 'opacity-50	'
+          )}
+          href="#like"
+          onClick={event => {
+            event.preventDefault()
+
+            toggleLike(id)
+          }}
+        >
+          <img className="w-4 h-4" src={img_likes} alt="Likes" />
+          <span className="ml-2">{likes.length}</span>
+        </a>
         <Link className="flex items-center mr-8" to={`/posts/${id}`}>
           <img className="w-4 h-4" src={img_comments} alt="Comments" />
           <span className="ml-2">{comments.length}</span>

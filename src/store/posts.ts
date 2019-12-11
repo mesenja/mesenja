@@ -1,5 +1,5 @@
 import { Chance } from 'chance'
-import { orderBy, random, range } from 'lodash'
+import { orderBy, random, range, shuffle } from 'lodash'
 import { cloneDeep } from 'lodash'
 import moment from 'moment'
 import { createHook, createStore } from 'react-sweet-state'
@@ -8,7 +8,7 @@ import { Post, User } from './types'
 
 const chance = new Chance()
 
-const ali = {
+export const ali = {
   id: 'ali-zahid',
   name: 'Ali Zahid'
 }
@@ -31,6 +31,10 @@ const posts: Post[] = range(100).map(() => ({
   })),
   createdAt: moment().subtract(random(10000), 'seconds'),
   id: chance.guid(),
+  likes: range(0, random(3)).map(index => ({
+    createdAt: moment().subtract(random(10000), 'seconds'),
+    user: shuffle(users)[index]
+  })),
   user: users[random(users.length - 1)]
 }))
 
@@ -50,6 +54,32 @@ const Store = createStore({
           id: chance.guid(),
           user: ali
         })
+
+        setState({
+          posts: data
+        })
+      }
+    },
+    toggleLike: (postId: string) => ({ setState, getState }) => {
+      const { posts } = getState()
+
+      const data = cloneDeep(posts)
+
+      const index = data.findIndex(({ id }) => id === postId)
+
+      if (index >= 0) {
+        const likeIndex = data[index].likes.findIndex(
+          like => like.user.id === ali.id
+        )
+
+        if (likeIndex >= 0) {
+          data[index].likes.splice(likeIndex, 1)
+        } else {
+          data[index].likes.push({
+            createdAt: moment(),
+            user: ali
+          })
+        }
 
         setState({
           posts: data

@@ -11,3 +11,4 @@ export { default as img_nav_logout } from './nav_logout.svg'
 export { default as img_nav_chat } from './nav_chat.svg'
 
 export { default as img_comments } from './comments.svg'
+export { default as img_likes } from './likes.svg'
