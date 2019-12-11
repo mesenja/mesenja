@@ -7,6 +7,7 @@ module.exports = {
         'accent-dark': '#01a383',
         'accent-light': '#34d6b6',
         grey: '#f6f7f8',
+        modal: 'rgba(0, 0, 0, 0.5)',
         primary: '#2c3e50',
         'primary-dark': '#132537',
         'primary-light': '#46586a'
@@ -24,7 +25,11 @@ module.exports = {
           'Segoe UI Emoji'
         ]
       },
+      maxHeight: {
+        almost: '90%'
+      },
       maxWidth: {
+        almost: '90%',
         'post-list': '40rem'
       },
       width: {

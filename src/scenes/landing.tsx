@@ -6,9 +6,7 @@ import { Footer } from '../components'
 import { useAuth } from '../store'
 
 export const Landing: FunctionComponent = () => {
-  const [state] = useAuth()
-
-  const { loggedIn } = state
+  const [{ loggedIn }] = useAuth()
 
   return (
     <>

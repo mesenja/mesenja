@@ -1,5 +1,6 @@
 import { Chance } from 'chance'
 import { orderBy, random, range, shuffle } from 'lodash'
+import { cloneDeep } from 'lodash'
 import moment from 'moment'
 import { createHook, createStore } from 'react-sweet-state'
 
@@ -7,11 +8,13 @@ import { Post, User } from './types'
 
 const chance = new Chance()
 
+const ali = {
+  id: 'ali-zahid',
+  name: 'Ali Zahid'
+}
+
 export const users: User[] = [
-  {
-    id: 'ali-zahid',
-    name: 'Ali Zahid'
-  },
+  ali,
   ...range(10).map(() => ({
     id: chance.guid(),
     name: chance.name()
@@ -35,7 +38,28 @@ const posts: Post[] = range(100).map(index => ({
 }))
 
 const Store = createStore({
-  actions: {},
+  actions: {
+    addComment: (postId: string, body: string) => ({ setState, getState }) => {
+      const { posts } = getState()
+
+      const data = cloneDeep(posts)
+
+      const index = data.findIndex(({ id }) => id === postId)
+
+      if (index >= 0) {
+        data[index].comments.push({
+          body,
+          createdAt: moment(),
+          id: chance.guid(),
+          user: ali
+        })
+
+        setState({
+          posts: data
+        })
+      }
+    }
+  },
   initialState: {
     posts: orderBy(posts, 'createdAt', 'desc'),
     topics

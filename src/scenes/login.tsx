@@ -5,10 +5,9 @@ import { Footer } from '../components'
 import { useAuth } from '../store'
 
 export const Login: FunctionComponent = () => {
-  const [state, actions] = useAuth()
-  const history = useHistory()
+  const [{ loggedIn }, { login }] = useAuth()
 
-  const { loggedIn } = state
+  const history = useHistory()
 
   useEffect(() => {
     if (loggedIn) {
@@ -20,7 +19,7 @@ export const Login: FunctionComponent = () => {
     <>
       <main className="m-8">
         <h1 className="text-5xl font-semibold text-primary">Sign in</h1>
-        <button className="button mt-8" onClick={() => actions.login()}>
+        <button className="button mt-8" onClick={() => login()}>
           Sign in
         </button>
       </main>

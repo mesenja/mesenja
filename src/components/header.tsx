@@ -14,10 +14,9 @@ import {
 import { useAuth } from '../store'
 
 export const Header: FunctionComponent = () => {
-  const [state] = useAuth()
-  const { pathname } = useLocation()
+  const [{ loggedIn }] = useAuth()
 
-  const { loggedIn } = state
+  const { pathname } = useLocation()
 
   const routes = [
     {
