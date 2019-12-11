@@ -44,12 +44,12 @@ export const Post: FunctionComponent<Props> = ({
         </span>
       </header>
       <p className="m-4">{body}</p>
-      <footer className="flex items-center p-4 border-grey border-t">
+      <footer className="flex items-center border-grey border-t">
         <a
           className={clsx(
             'flex',
             'items-center',
-            'mr-8',
+            'p-4',
 
             liked ? 'opacity-100' : 'opacity-50'
           )}
@@ -60,21 +60,23 @@ export const Post: FunctionComponent<Props> = ({
             toggleLike(id)
           }}
         >
-          <img className="w-4 h-4" src={img_likes} alt="Likes" />
-          <span className="ml-2">{likes.length}</span>
+          <img className="w-6 h-6" src={img_likes} alt="Likes" />
+          {likes.length > 0 && <span className="ml-2">{likes.length}</span>}
         </a>
         <Link
           className={clsx(
             'flex',
             'items-center',
-            'mr-8',
+            'p-4',
 
             commented ? 'opacity-100' : 'opacity-50'
           )}
           to={`/posts/${id}`}
         >
-          <img className="w-4 h-4" src={img_comments} alt="Comments" />
-          <span className="ml-2">{comments.length}</span>
+          <img className="w-6 h-6" src={img_comments} alt="Comments" />
+          {comments.length > 0 && (
+            <span className="ml-2">{comments.length}</span>
+          )}
         </Link>
       </footer>
     </>
