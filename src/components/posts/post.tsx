@@ -25,6 +25,7 @@ export const Post: FunctionComponent<Props> = ({
 
   const history = useHistory()
 
+  const commented = comments.find(comment => comment.user.id === ali.id)
   const liked = likes.find(like => like.user.id === ali.id)
 
   const post = (
@@ -50,7 +51,7 @@ export const Post: FunctionComponent<Props> = ({
             'items-center',
             'mr-8',
 
-            liked ? 'opacity-100' : 'opacity-50	'
+            liked ? 'opacity-100' : 'opacity-50'
           )}
           href="#like"
           onClick={event => {
@@ -62,7 +63,16 @@ export const Post: FunctionComponent<Props> = ({
           <img className="w-4 h-4" src={img_likes} alt="Likes" />
           <span className="ml-2">{likes.length}</span>
         </a>
-        <Link className="flex items-center mr-8" to={`/posts/${id}`}>
+        <Link
+          className={clsx(
+            'flex',
+            'items-center',
+            'mr-8',
+
+            commented ? 'opacity-100' : 'opacity-50'
+          )}
+          to={`/posts/${id}`}
+        >
           <img className="w-4 h-4" src={img_comments} alt="Comments" />
           <span className="ml-2">{comments.length}</span>
         </Link>
