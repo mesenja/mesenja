@@ -8,14 +8,14 @@ export const SideBar: FunctionComponent<Props> = ({ topics }) => (
   <aside className="self-start m-8 w-56 absolute">
     <h2 className="text-xl font-semibold mb-4">Topics</h2>
     <div className="flex flex-col -ml-2">
-      {topics.map((hashtag, index) => (
+      {topics.map((topic, index) => (
         <a
           key={index}
           className="text-sm hover:text-accent hover:font-medium p-2 hover:bg-white rounded hover:shadow"
-          href={`#${hashtag}`}
+          href="#topic"
           onClick={event => event.preventDefault()}
         >
-          {hashtag}
+          {topic}
         </a>
       ))}
     </div>

@@ -24,16 +24,16 @@ export const Post: FunctionComponent<Props> = ({
     </header>
     <p className="m-4">{body}</p>
     <footer className="flex justify-between items-center p-4 border-grey border-t">
-      <a className="flex items-center" href="#comments">
+      <a className="flex items-center mr-8" href="#comments">
         <img className="w-4 h-4" src={img_comments} alt="Comments" />
         <span className="ml-2">{comments.length}</span>
       </a>
       {topics.length > 0 && (
-        <div className="flex">
-          topics
-          {topics.map((hashtag, index) => (
+        <div className="flex flex-wrap justify-end">
+          <span className="font-medium">topics</span>
+          {topics.map((topic, index) => (
             <a key={index} className="text-accent ml-2" href="#topics">
-              {hashtag}
+              {topic}
             </a>
           ))}
         </div>
