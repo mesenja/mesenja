@@ -64,7 +64,7 @@ export const Header: FunctionComponent = () => {
   ].filter(({ auth }) => auth === loggedIn)
 
   return (
-    <header className="bg-primary flex items-stretch justify-between m-8 rounded">
+    <header className="bg-primary flex items-stretch justify-between m-8 rounded fixed w-header z-30 shadow-lg">
       <Link className="m-4" to="/">
         <img className="h-8 w-8" src={img_mesenja_light} alt="Mesenja" />
       </Link>
@@ -81,10 +81,8 @@ export const Header: FunctionComponent = () => {
             )}
             to={link}
           >
-            {icon && (
-              <img className="m-5 -mr-3 h-6 w-6" src={icon} alt={label} />
-            )}
-            <span className="mx-5 text-white">{label}</span>
+            {icon && <img className="m-5 h-6 w-6" src={icon} alt={label} />}
+            {!icon && <span className="mx-5 text-white">{label}</span>}
           </Link>
         ))}
       </nav>

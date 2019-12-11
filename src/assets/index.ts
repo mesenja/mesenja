@@ -9,3 +9,5 @@ export { default as img_nav_profile } from './nav_profile.svg'
 export { default as img_nav_posts } from './nav_posts.svg'
 export { default as img_nav_logout } from './nav_logout.svg'
 export { default as img_nav_chat } from './nav_chat.svg'
+
+export { default as img_comments } from './comments.svg'

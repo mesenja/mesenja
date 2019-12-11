@@ -21,11 +21,11 @@ a {
 /* layout */
 
 #root {
-  @apply flex flex-col h-screen min-h-screen overflow-y-auto;
+  @apply bg-grey flex flex-col h-screen min-h-screen overflow-y-auto;
 }
 
 #root > main {
-  @apply flex-1;
+  @apply flex-1 mt-32;
 }
 
 /* components */

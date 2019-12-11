@@ -4,11 +4,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import { Landing, Login, Logout } from './scenes'
+import { Header } from './components'
+import { Landing, Login, Logout, Posts } from './scenes'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <BrowserRouter>
+    <Header />
+
     <Switch>
       <Route path="/login">
         <Login />
@@ -16,12 +19,14 @@ ReactDOM.render(
       <Route path="/logout">
         <Logout />
       </Route>
+      <Route path="/posts">
+        <Posts />
+      </Route>
       <Route path="/">
         <Landing />
       </Route>
     </Switch>
   </BrowserRouter>,
-
   document.getElementById('root')
 )
 
