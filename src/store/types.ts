@@ -32,5 +32,13 @@ export interface Like {
 
 export interface User {
   id: string
+  email: string
   name: string
+  role: Role
+  createdAt: Moment
+}
+
+export enum Role {
+  MEMBER = 'MEMBER',
+  OWNER = 'OWNER'
 }

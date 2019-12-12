@@ -1,6 +1,9 @@
+import { random } from 'lodash'
+import moment from 'moment'
 import { createHook, createStore } from 'react-sweet-state'
 
 import { storage } from '../lib'
+import { Role, User } from './types'
 
 const Store = createStore({
   actions: {
@@ -27,7 +30,10 @@ const Store = createStore({
 
 export const useAuth = createHook(Store)
 
-export const ali = {
+export const ali: User = {
+  createdAt: moment().subtract(random(10000), 'seconds'),
+  email: 'ali.zahid@live.com',
   id: 'ali-zahid',
-  name: 'Ali Zahid'
+  name: 'Ali Zahid',
+  role: Role.OWNER
 }

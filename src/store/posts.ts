@@ -6,17 +6,10 @@ import { createHook, createStore } from 'react-sweet-state'
 
 import { ali } from './auth'
 import { groups } from './groups'
-import { Post, User } from './types'
+import { users } from './team'
+import { Post } from './types'
 
 const chance = new Chance()
-
-export const users: User[] = [
-  ali,
-  ...range(10).map(() => ({
-    id: chance.guid(),
-    name: chance.name()
-  }))
-]
 
 export const posts: Post[] = range(100).map(() => ({
   body: chance.paragraph(),

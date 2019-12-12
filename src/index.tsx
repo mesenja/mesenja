@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { Header } from './components'
-import { Landing, Login, Logout, Posts } from './scenes'
+import { Landing, Login, Logout, Posts, Team } from './scenes'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
@@ -21,6 +21,9 @@ ReactDOM.render(
       </Route>
       <Route path="/posts">
         <Posts />
+      </Route>
+      <Route path="/team">
+        <Team />
       </Route>
       <Route path="/">
         <Landing />
