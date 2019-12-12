@@ -29,6 +29,10 @@ export const Posts: FunctionComponent = () => {
     if (group && group !== groupId) {
       setGroupId(group)
     }
+
+    if (!group) {
+      setGroupId('general')
+    }
   }, [location.search, groupId, setGroupId])
 
   return (
