@@ -23,7 +23,7 @@ const Store = createStore({
   initialState: {
     users
   },
-  name: 'groups'
+  name: 'team'
 })
 
 export const useTeam = createHook(Store)
