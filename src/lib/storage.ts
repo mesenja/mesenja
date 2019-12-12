@@ -4,8 +4,14 @@ class Storage {
   prefix = '@mesenja:'
   store = new SecureLS()
 
-  get(key: string) {
-    return this.store.get(this.prefix + key)
+  get(key: string, fallback: string | boolean | object) {
+    const value = this.store.get(this.prefix + key)
+
+    if (value) {
+      return value
+    }
+
+    return fallback
   }
 
   set(key: string, value: string | boolean | object) {

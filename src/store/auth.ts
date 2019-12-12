@@ -20,9 +20,14 @@ const Store = createStore({
     }
   },
   initialState: {
-    loggedIn: !!storage.get('loggedIn')
+    loggedIn: storage.get('loggedIn', false)
   },
   name: 'auth'
 })
 
 export const useAuth = createHook(Store)
+
+export const ali = {
+  id: 'ali-zahid',
+  name: 'Ali Zahid'
+}

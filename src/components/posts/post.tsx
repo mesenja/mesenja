@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import { img_comments, img_likes } from '../../assets'
 import { usePosts } from '../../store'
-import { ali } from '../../store/posts'
+import { ali } from '../../store/auth'
 import { Post as IPost } from '../../store/types'
 import { Modal } from '../modal'
 import { Comment } from './comment'
@@ -106,9 +106,5 @@ export const Post: FunctionComponent<Props> = ({
     )
   }
 
-  return (
-    <article className="bg-white rounded mb-8 first:mt-8 w-full max-w-post-list shadow">
-      {post}
-    </article>
-  )
+  return <article className="bg-white rounded mt-8 shadow">{post}</article>
 }

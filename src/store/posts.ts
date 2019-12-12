@@ -4,14 +4,11 @@ import { cloneDeep } from 'lodash'
 import moment from 'moment'
 import { createHook, createStore } from 'react-sweet-state'
 
+import { ali } from './auth'
+import { groups } from './groups'
 import { Post, User } from './types'
 
 const chance = new Chance()
-
-export const ali = {
-  id: 'ali-zahid',
-  name: 'Ali Zahid'
-}
 
 export const users: User[] = [
   ali,
@@ -21,7 +18,7 @@ export const users: User[] = [
   }))
 ]
 
-const posts: Post[] = range(100).map(() => ({
+export const posts: Post[] = range(100).map(() => ({
   body: chance.paragraph(),
   comments: range(0, random(3)).map(() => ({
     body: chance.paragraph(),
@@ -30,6 +27,7 @@ const posts: Post[] = range(100).map(() => ({
     user: users[random(users.length - 1)]
   })),
   createdAt: moment().subtract(random(10000), 'seconds'),
+  group: groups[random(groups.length - 1)],
   id: chance.guid(),
   likes: range(0, random(3)).map(index => ({
     createdAt: moment().subtract(random(10000), 'seconds'),
