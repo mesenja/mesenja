@@ -12,7 +12,7 @@ export const Reply: FunctionComponent<Props> = ({ onReply }) => {
   return (
     <form className="flex" onSubmit={event => event.preventDefault()}>
       <textarea
-        className="w-full p-4 resize-non outline-none bg-grey"
+        className="w-full p-4 resize-none outline-none bg-grey"
         onChange={event => setBody(event.target.value)}
         onKeyDown={event => {
           if (body && event.metaKey && event.key === 'Enter') {
