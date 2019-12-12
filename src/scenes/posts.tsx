@@ -36,9 +36,11 @@ export const Posts: FunctionComponent = () => {
   }, [location.search, groupId, setGroupId])
 
   return (
-    <main className="px-8 mb-16 flex justify-center">
-      <Groups active={groupId} className="w-40 mr-8" prefix="posts" />
-      <List posts={posts.filter(post => post.group.id === groupId)} />
+    <main className="flex">
+      <div className="w-56">
+        <Groups active={groupId} className="w-40 m-8 fixed" prefix="posts" />
+      </div>
+      <List groupId={groupId} posts={posts} />
 
       <Route path="/posts/:id" render={props => <Post {...props} />} />
     </main>

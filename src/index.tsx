@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { Header } from './components'
-import { Chat, Landing, Login, Logout, Posts, Team } from './scenes'
+import { Chat, Landing, Logout, Posts, Team } from './scenes'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
@@ -13,9 +13,6 @@ ReactDOM.render(
     <Header />
 
     <Switch>
-      <Route path="/login">
-        <Login />
-      </Route>
       <Route path="/logout">
         <Logout />
       </Route>

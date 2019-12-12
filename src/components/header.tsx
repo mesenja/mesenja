@@ -18,6 +18,10 @@ export const Header: FunctionComponent = () => {
 
   const { pathname } = useLocation()
 
+  if (!loggedIn && ['/', '/login'].includes(pathname)) {
+    return null
+  }
+
   const routes = [
     {
       auth: true,
@@ -54,20 +58,15 @@ export const Header: FunctionComponent = () => {
       icon: img_nav_logout,
       label: 'Logout',
       link: '/logout'
-    },
-    {
-      auth: false,
-      label: 'Sign in',
-      link: '/login'
     }
   ].filter(({ auth }) => auth === loggedIn)
 
   return (
-    <header className="bg-primary flex items-stretch justify-between m-8 rounded fixed w-header z-30 shadow-lg">
+    <header className="bg-primary flex flex-col justify-between h-screen shadow-lg">
       <Link className="m-4" to="/">
-        <img className="h-8 w-8" src={img_mesenja_light} alt="Mesenja" />
+        <img className="h-6 w-6" src={img_mesenja_light} alt="Mesenja" />
       </Link>
-      <nav className="flex mr-4">
+      <nav className="flex flex-col">
         {routes.map(({ icon, label, link }, index) => (
           <Link
             key={index}
@@ -80,7 +79,7 @@ export const Header: FunctionComponent = () => {
             )}
             to={link}
           >
-            {icon && <img className="m-5 h-6 w-6" src={icon} alt={label} />}
+            {icon && <img className="m-4 h-6 w-6" src={icon} alt={label} />}
             {!icon && <span className="mx-5 text-white">{label}</span>}
           </Link>
         ))}

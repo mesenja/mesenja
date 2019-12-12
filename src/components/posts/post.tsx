@@ -14,11 +14,13 @@ import { Reply } from './reply'
 
 interface Props {
   modal?: boolean
+  groupId?: string
   post: IPost
 }
 
 export const Post: FunctionComponent<Props> = ({
   modal,
+  groupId,
   post: { body, createdAt, comments, id, likes, user }
 }) => {
   const [, { addComment, toggleLike }] = usePosts()
@@ -71,7 +73,7 @@ export const Post: FunctionComponent<Props> = ({
 
             commented ? 'opacity-100' : 'opacity-50'
           )}
-          to={`/posts/${id}`}
+          to={groupId ? `/posts/${id}?group=${groupId}` : `/posts/${id}`}
         >
           <img className="w-6 h-6" src={img_comments} alt="Comments" />
           {comments.length > 0 && (
@@ -106,5 +108,9 @@ export const Post: FunctionComponent<Props> = ({
     )
   }
 
-  return <article className="bg-white rounded mt-8 shadow">{post}</article>
+  return (
+    <article className="bg-white rounded my-4 first:mt-8 last:mb-8 shadow">
+      {post}
+    </article>
+  )
 }

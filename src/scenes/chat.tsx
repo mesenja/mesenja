@@ -44,16 +44,18 @@ export const Chat: FunctionComponent = () => {
   const thread = threads.find(thread => thread.id === (groupId || threadId))
 
   return (
-    <main className="px-8 mb-16 flex justify-center">
-      <div className="mt-8 mr-8 h-chat-box overflow-x-auto">
+    <main className="flex">
+      <div className="p-8 h-screen overflow-x-auto">
         <Groups active={groupId} className="w-40" prefix="chat" />
         <Threads active={threadId} className="w-40 mt-8" />
       </div>
       {thread && (
-        <Thread
-          thread={thread}
-          onReply={(threadId, body) => reply(threadId, body)}
-        />
+        <div className="flex h-screen p-8 pl-4 w-full">
+          <Thread
+            thread={thread}
+            onReply={(threadId, body) => reply(threadId, body)}
+          />
+        </div>
       )}
     </main>
   )

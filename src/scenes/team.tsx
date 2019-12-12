@@ -17,7 +17,7 @@ export const Team: FunctionComponent = () => {
   }, [loggedIn, history])
 
   return (
-    <main className="px-16 mb-8">
+    <main className="p-8">
       <table className="w-full bg-white rounded shadow">
         <thead>
           <tr className="border-grey border-b-2">

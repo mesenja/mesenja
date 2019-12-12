@@ -22,13 +22,10 @@ export const Thread: FunctionComponent<Props> = ({ thread, onReply }) => {
   }, [thread, chatBox])
 
   return (
-    <section className="max-w-post-list bg-white shadow mt-8 rounded overflow-hidden h-chat-box flex flex-col">
+    <section className="bg-white shadow rounded overflow-hidden flex-1 flex flex-col">
       <div ref={chatBox} className="flex-1 overflow-y-auto">
         {orderBy(thread.messages, 'createdAt', 'asc').map((message, index) => (
-          <article
-            key={index}
-            className="p-4 first:border-0 border-t border-grey"
-          >
+          <article key={index} className="p-4">
             <header className="flex justify-between items-center">
               <a className="flex items-center text-sm font-medium" href="#user">
                 <img
