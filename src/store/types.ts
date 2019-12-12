@@ -30,6 +30,21 @@ export interface Like {
   createdAt: Moment
 }
 
+export interface Thread {
+  id: string
+  messages: Message[]
+  users: User[]
+  createdAt: Moment
+  updatedAt: Moment
+}
+
+export interface Message {
+  id: string
+  body: string
+  user: User
+  createdAt: Moment
+}
+
 export interface User {
   id: string
   email: string

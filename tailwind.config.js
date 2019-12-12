@@ -25,8 +25,12 @@ module.exports = {
           'Segoe UI Emoji'
         ]
       },
+      height: {
+        'chat-box': 'calc(100vh - 14rem)'
+      },
       maxHeight: {
-        almost: '90%'
+        almost: '90%',
+        reply: '10rem'
       },
       maxWidth: {
         almost: '90%',
@@ -38,6 +42,7 @@ module.exports = {
     }
   },
   variants: {
+    borderWidth: ['responsive', 'first'],
     margin: ['responsive', 'first']
   }
 }

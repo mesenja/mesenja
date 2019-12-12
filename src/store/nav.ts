@@ -8,12 +8,20 @@ const Store = createStore({
       storage.set('groupId', groupId)
 
       setState({
-        groupId: groupId
+        groupId
+      })
+    },
+    setThreadId: (threadId: string) => ({ setState }) => {
+      storage.set('threadId', threadId)
+
+      setState({
+        threadId
       })
     }
   },
   initialState: {
-    groupId: storage.get('groupId', 'general')
+    groupId: storage.get('groupId', 'general'),
+    threadId: storage.get('threadId', '')
   },
   name: 'nav'
 })

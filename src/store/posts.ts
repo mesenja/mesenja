@@ -36,10 +36,10 @@ const Store = createStore({
 
       const data = cloneDeep(posts)
 
-      const index = data.findIndex(({ id }) => id === postId)
+      const post = data.find(({ id }) => id === postId)
 
-      if (index >= 0) {
-        data[index].comments.push({
+      if (post) {
+        post.comments.push({
           body,
           createdAt: moment(),
           id: chance.guid(),
@@ -56,17 +56,15 @@ const Store = createStore({
 
       const data = cloneDeep(posts)
 
-      const index = data.findIndex(({ id }) => id === postId)
+      const post = data.find(({ id }) => id === postId)
 
-      if (index >= 0) {
-        const likeIndex = data[index].likes.findIndex(
-          like => like.user.id === ali.id
-        )
+      if (post) {
+        const likeIndex = post.likes.findIndex(like => like.user.id === ali.id)
 
         if (likeIndex >= 0) {
-          data[index].likes.splice(likeIndex, 1)
+          post.likes.splice(likeIndex, 1)
         } else {
-          data[index].likes.push({
+          post.likes.push({
             createdAt: moment(),
             user: ali
           })

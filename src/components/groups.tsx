@@ -6,14 +6,19 @@ import { useGroups } from '../store'
 
 interface Props {
   active?: string
+  className?: string
   prefix: string
 }
 
-export const Groups: FunctionComponent<Props> = ({ active, prefix }) => {
+export const Groups: FunctionComponent<Props> = ({
+  active,
+  className,
+  prefix
+}) => {
   const [{ groups }] = useGroups()
 
   return (
-    <aside className="m-8 w-40">
+    <aside className={className}>
       <h2 className="font-semibold text-xl mb-2 ml-4">Groups</h2>
       <div className="flex flex-col">
         {groups.map((group, index) => (

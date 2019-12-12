@@ -1,4 +1,5 @@
 export { useAuth } from './auth'
+export { useChat } from './chat'
 export { useGroups } from './groups'
 export { useNav } from './nav'
 export { usePosts } from './posts'

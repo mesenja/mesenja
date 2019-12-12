@@ -37,7 +37,7 @@ export const Posts: FunctionComponent = () => {
 
   return (
     <main className="px-8 mb-16 flex justify-center">
-      <Groups active={groupId} prefix="posts" />
+      <Groups active={groupId} className="w-40 mr-8" prefix="posts" />
       <List posts={posts.filter(post => post.group.id === groupId)} />
 
       <Route path="/posts/:id" render={props => <Post {...props} />} />
