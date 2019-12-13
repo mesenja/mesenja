@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react'
+import React, { FunctionComponent, useEffect, useRef } from 'react'
 import { Route, useHistory, useLocation } from 'react-router-dom'
 
 import { Groups } from '../components'
@@ -14,6 +14,8 @@ export const Posts: FunctionComponent = () => {
 
   const location = useLocation()
   const history = useHistory()
+
+  const container = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!loggedIn) {
@@ -35,8 +37,17 @@ export const Posts: FunctionComponent = () => {
     }
   }, [location.search, groupId, setGroupId])
 
+  useEffect(() => {
+    if (container.current) {
+      container.current.scrollTo({
+        behavior: 'smooth',
+        top: 0
+      })
+    }
+  }, [groupId])
+
   return (
-    <main className="flex">
+    <main ref={container} className="flex">
       <div className="w-56">
         <Groups active={groupId} className="w-40 m-8 fixed" prefix="posts" />
       </div>
